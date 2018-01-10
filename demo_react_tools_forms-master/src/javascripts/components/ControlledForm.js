@@ -36,6 +36,7 @@ const ControlledForm = ({
         state={getColorFromError(errors.examplePassword)}
         name="examplePassword"
         value={examplePassword}
+        id="examplePassword"
         onChange={onChangeInput}
       />
       <ValidationErrorMessage message={errors.examplePassword} />
