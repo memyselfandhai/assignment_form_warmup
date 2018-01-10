@@ -21,10 +21,16 @@ class ControlledFormContainer extends Component {
 
   onSubmit = e => {
     e.preventDefault();
-    //validations
-    console.log(e.target);
     console.log(this.state);
-    this.formSuccess();
+    if (
+      e.target.exampleEmail.value.length > 0 &&
+      e.target.examplePassword.value.length > 0 &&
+      e.target.exampleUrl.value.length > 0
+    ) {
+      this.formSuccess();
+    } else {
+      this.formError();
+    }
   };
 
   formSuccess = () => {
@@ -37,6 +43,19 @@ class ControlledFormContainer extends Component {
         exampleURL: ""
       },
       () => console.log("Success!")
+    );
+  };
+
+  formError = () => {
+    this.setState(
+      {
+        success: false,
+        errors: { type: "No email provided." },
+        exampleEmail: "",
+        examplePassword: "",
+        exampleURL: ""
+      },
+      () => console.log("Error in your form.")
     );
   };
 
