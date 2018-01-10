@@ -14,9 +14,19 @@ class ControlledFormContainer extends Component {
   }
 
   onChangeInput = e => {
-    this.setState({
-      [e.target.name]: e.target.value
-    });
+    const emailField = document.getElementById("exampleEmail").value;
+    console.log("emailField value", emailField);
+    console.log("name", e.target);
+    if (!/@/.test(emailField)) {
+      console.log("got to if branch");
+      this.setState({
+        ...this.state,
+        error: { type: "Email should be of the form abc@xyz!" }
+      });
+    }
+    // this.setState({
+    //   [e.target.name]: e.target.value
+    // });
   };
 
   onSubmit = e => {

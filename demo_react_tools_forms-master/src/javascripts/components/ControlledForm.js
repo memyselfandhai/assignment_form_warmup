@@ -24,6 +24,7 @@ const ControlledForm = ({
         state={getColorFromError(errors.exampleEmail)}
         name="exampleEmail"
         value={exampleEmail}
+        id="exampleEmail"
         onChange={onChangeInput}
       />
       <ValidationErrorMessage message={errors.exampleEmail} />
